@@ -101,6 +101,8 @@ public class StartSelectNumber extends StartingSub implements Numbers {
 				 * Main Game load method add */								
 				MemberDAO dao = new MemberDAO();
 			int cnt = dao.rank(dto);
+			TutorialScanner tsc = new TutorialScanner();
+			tsc.firstView();
 			
 			
 			}
@@ -114,7 +116,7 @@ public class StartSelectNumber extends StartingSub implements Numbers {
 
 		if(number == 3) {
 			
-			System.out.println("[game closed]");
+			System.out.println("[게임종료]");
 			// number가 3일시 게임 종료, Assembly에 있는 method들이 작동하지 않는 구조로 진행
 			
 		}
