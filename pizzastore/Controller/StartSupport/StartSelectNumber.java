@@ -44,6 +44,9 @@ public class StartSelectNumber extends StartingSub implements Numbers {
 					dto = new MemberDTO(id, pw);
 					dao.login(dto);
 					accountSet(dto);
+					
+					Assembly assem = new Assembly();
+					assem.Game(dto);
 					break;
 				}
 				

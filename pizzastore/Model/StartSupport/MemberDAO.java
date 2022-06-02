@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Story.Day1_Question;
+
 public class MemberDAO extends StartingSub {
 	int cnt;
 	MemberDTO dto = new MemberDTO(null, null);
@@ -192,7 +194,16 @@ public class MemberDAO extends StartingSub {
 
 			if (rs.next()) {
 
+				
 				System.out.println("로그인 성공");
+				
+				Assembly assem = new Assembly();
+				Day1_Question dayList = new Day1_Question();
+				dayList.day1Quest();
+				assem.manual();
+				assem.Game(dto);
+				
+				
 			} else {
 				System.out.println("로그인 실패");
 				StartSelectNumber ssn = new StartSelectNumber();
