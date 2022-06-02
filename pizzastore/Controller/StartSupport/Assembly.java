@@ -154,7 +154,7 @@ public class Assembly extends StartingSub implements Tutorial {
 				
 				// 반응 출력
 				System.out.println("★☆★ 띠로리띠로리 ▶ 주문하신 피자 나왔습니다! ★☆★");
-				System.out.print("손님 : ");
+				System.out.println("손님 : ");
 				
 				rdReaction.rdReactionNum(); // 랜덤 반응 List method
 				arc.reactionimgCheck(); // 이모지 반응 출력 메소드
@@ -170,8 +170,10 @@ public class Assembly extends StartingSub implements Tutorial {
 					
 					System.out.println();
 					System.out.println("===============================================================");
-					System.out.println("+*.｡ﾟ ･*･:*:｡*+。*｡:ﾟ+\r\n" + "＼＼ヽ  ٩( 'ω' )و   /／／\r\n" + "  （￣￣￣￣￣￣￣￣￣￣）\r\n"
-							+ "  （￣￣￣￣￣￣￣￣￣￣）\r");
+					System.out.print("+*.｡ﾟ ･*･:*:｡*+。*｡:ﾟ+\r\n" 
+					                + "＼＼   d( 'ω' )b   /／／\r\n" 
+							        + "  （￣￣￣￣￣￣￣￣￣￣）\r\n"
+							        + "  （￣￣￣￣￣￣￣￣￣￣）\r");
 					System.out.println("제임스 고슬링씨 : " + talkSub + "고생했다. 퇴근할 시간이다!" + talkSub);
 					System.out.println(name + " : " + talkSub + "오예~ 칼퇴하자!!!" + talkSub);
 					System.out.println("===============================================================");
