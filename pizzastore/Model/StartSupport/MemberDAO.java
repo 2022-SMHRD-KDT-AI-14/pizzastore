@@ -370,7 +370,9 @@ public class MemberDAO extends StartingSub {
 			e.printStackTrace();
 		}
 
-		String sql = "select rownum, ID, nickname, money from member where rownum<11 order by money desc";
+
+		String sql = "select rownum, ID, nickname, Money from (select ID, nickname, Money from member group by ID, nickname, money order by Money desc) where rownum<11";
+
 
 		try {
 			psmt = conn.prepareStatement(sql);
