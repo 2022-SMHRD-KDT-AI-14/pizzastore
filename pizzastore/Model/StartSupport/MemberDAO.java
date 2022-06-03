@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import StartObject.Assembly;
 import Story.Day1_Question;
 
 public class MemberDAO extends StartingSub {

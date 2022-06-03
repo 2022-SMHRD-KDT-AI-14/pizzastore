@@ -1,7 +1,6 @@
 package API;
 
-import StartObject.Starting;
-import StartSupport.Assembly;
+import StartObject.Assembly;
 import StartSupport.MemberDTO;
 
 public class Main {

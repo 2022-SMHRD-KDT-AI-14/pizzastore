@@ -1,4 +1,4 @@
-package StartSupport;
+package StartObject;
 
 import java.sql.DriverManager;
 import java.util.Scanner;
@@ -14,6 +14,12 @@ import Image.pizzaImage;
 import Image.rdReactionImgMatching;
 import QuestionLogic.RandomQuestion;
 import Reaction.GuestReaction;
+import StartSupport.GameEnding;
+import StartSupport.MemberDAO;
+import StartSupport.MemberDTO;
+import StartSupport.StartSelectNumber;
+import StartSupport.StartingSub;
+import StartSupport.TutorialScanner;
 import Story.Day1_Question;
 import Story.Manual;
 import UI.Tutorial;
@@ -30,6 +36,7 @@ public class Assembly extends StartingSub implements Tutorial {
 	PreparedStatement psmt;
 	ResultSet rs;
 
+	;
 	// 각 챕터별 세부적으로 method를 조합하는 class 입니다.
 
 	int cnt;
@@ -46,6 +53,8 @@ public class Assembly extends StartingSub implements Tutorial {
 		AnswerMatching ansMat = new AnswerMatching();
 		AwCheck ach = new AwCheck();
 		Scanner sc = new Scanner(System.in);
+
+		name = "You";
 
 		if (number == 1) {
 
@@ -118,12 +127,12 @@ public class Assembly extends StartingSub implements Tutorial {
 
 		reaction.guestEmotion();// 반응 이모지 불러오기
 
-		if(number==1) {
-			
+		if (number == 1) {
+
 			level += 1;
-			
+
 			while (cnt != 25 && life != 3) {
-				
+
 				switch (cnt) {
 				case 0:
 					pizzaimage.toppingImg1();
@@ -141,89 +150,84 @@ public class Assembly extends StartingSub implements Tutorial {
 					pizzaimage.toppingImg5();
 					break;
 				}
-				
+
 				if (cnt == 0 || cnt == 5 || cnt == 10 || cnt == 15 || cnt == 20) {
 					System.out.println("[ Day " + (day + 1) + " ★ 시작! ]");
 				} // 게임시작시 day 표시
-				
+
 				// 본 게임 시작
 				awReactionCheck = 0;
 				rdQuest.rdQuestNum(); // 랜덤 질문 List method
 				ans.answerScanner(); // 질문에 대한 토핑 답하는 method
 				ach.levels(); // 정답 매칭 시스템
-				
+
 				// 반응 출력
 				System.out.println("★☆★ 띠로리띠로리 ▶ 주문하신 피자 나왔습니다! ★☆★");
 				System.out.println("손님 : ");
-				
+
 				rdReaction.rdReactionNum(); // 랜덤 반응 List method
 				arc.reactionimgCheck(); // 이모지 반응 출력 메소드
-				rdReaction.rdReactionNum();
 				arc.reactionCheck(); // 반응 출력 매소드
-				
+
 				cnt++;
 				char talkSub = '"';
 				String enter = "";
-				
+
 				if (cnt % 5 == 0 && life != 3) { // 5문제씩 카운트
 					day++;
-					
+
 					System.out.println();
 					System.out.println("===============================================================");
-					System.out.print("+*.｡ﾟ ･*･:*:｡*+。*｡:ﾟ+\r\n" 
-					                + "＼＼   d( 'ω' )b   /／／\r\n" 
-							        + "  （￣￣￣￣￣￣￣￣￣￣）\r\n"
-							        + "  （￣￣￣￣￣￣￣￣￣￣）\r");
+					System.out.print("+*.｡ﾟ ･*･:*:｡*+。*｡:ﾟ+\r\n" + "＼＼   d( 'ω' )b   /／／\r\n" + "  （￣￣￣￣￣￣￣￣￣￣）\r\n"
+							+ "  （￣￣￣￣￣￣￣￣￣￣）\r");
 					System.out.println("제임스 고슬링씨 : " + talkSub + "고생했다. 퇴근할 시간이다!" + talkSub);
 					System.out.println(name + " : " + talkSub + "오예~ 칼퇴하자!!!" + talkSub);
 					System.out.println("===============================================================");
 					System.out.println();
-					
+
 					System.out.println("[ Day " + day + " 판매 종료 ]");
 					System.out.println("▶ 전체 수익 : " + money + "원 ◀");
-					
+
 					System.out.println();
 					System.out.println("===============================================================");
-					
+
 					if (day < 5) {
 						System.out.print("다음날로 갈까요? " + talkSub + "네" + talkSub + "라고 입력 >> ");
 						enter = sc.next();
 					}
-					
+
 				}
-				
+
 				ans.answer.clear();
 				System.out.println();
 //			System.out.println("Cnt view Test : " + cnt);
 				System.out.println();
 				MemberDAO dao = new MemberDAO();
 				dao.updateMoney(money, dto.getId());
+				System.out.println();
+				
+				if(life==3 || cnt == 25) {
+					
+					System.out.println("전체 매출 : " + money);
+					
+				}
+				
+				// money에 잘 담아지는지 확인하는 용도의 print
+				
+				if (life == 3) {
+					
+					end.ending();
+					
+				}
 			}
-			
-			
-		}
-
-		System.out.println();
-		if(life==3||cnt==25) {
-			
-			System.out.println("전체 매출 : " + money);
-			
-		}
-		
-		// money에 잘 담아지는지 확인하는 용도의 print
-		
-		if (life == 3) {
-
-			end.ending();
 
 		}
 
 
-		if(number>3) {
-			
+		if (number > 3) {
+
 			System.out.println("번호를 잘못입력하여 게임을 종료합니다. 다시 시작해주세요.");
-			
-			
+
 		}
 
 	}

@@ -3,7 +3,8 @@ package StartSupport;
 
 import java.util.Scanner;
 
-import StartObject.Starting;
+import API.Main;
+import StartObject.Assembly;
 import Story.Manual;
 import UI.Numbers;
 
@@ -29,8 +30,7 @@ public class StartSelectNumber extends StartingSub implements Numbers {
 			System.out.println(" [1] 로그인  [2] 회원가입");
 			System.out.print(" 숫자를 입력하세요 >> ");
 			int number1 = sc.nextInt();
-			System.out.println(
-					"==========================================================================================================");
+			System.out.println();
 			while (true) {
 
 				if (number1 == 1) {
@@ -105,7 +105,11 @@ public class StartSelectNumber extends StartingSub implements Numbers {
 				MemberDAO dao = new MemberDAO();
 			int cnt = dao.rank(dto);
 			TutorialScanner tsc = new TutorialScanner();
-			tsc.firstView();
+			
+			Assembly ass = new Assembly();
+			Main ma = new Main();
+			
+			Main.main(null);
 			
 			
 			}
