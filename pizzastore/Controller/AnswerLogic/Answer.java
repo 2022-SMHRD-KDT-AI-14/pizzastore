@@ -3,6 +3,7 @@ package AnswerLogic;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Image.pizzaImage2;
 import QuestionLogic.RandomQuestion;
 import StartSupport.StartingSub;
 import Story.Day1_Question;
@@ -11,6 +12,7 @@ public class Answer extends StartingSub {
 
 	public static ArrayList<String> answer = new ArrayList<String>();
 	Scanner sc = new Scanner(System.in);
+	pizzaImage2 pizza = new pizzaImage2(); 
 	RandomQuestion rdQuest = new RandomQuestion();
 	Day1_Question day1quest = new Day1_Question();
 
@@ -35,9 +37,9 @@ public class Answer extends StartingSub {
 			answer.add(sc.next());
 			// 반복적으로 추가 할당하고 "완성"이 나오면 a에 +1, while 종료
 
-			for (int i = 0; i < answer.size(); i++) {
-
+			for (int i = 0; i < answer.size(); i++) {				
 				if (answer.get(i).equals("완성")) {
+					pizza.PizzaImg1();
 					answer.remove("완성"); // 완료라는 문자의 배열을 지워줌
 					a += 1;
 
