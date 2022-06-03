@@ -155,8 +155,8 @@ public class Assembly extends StartingSub implements Tutorial {
 					System.out.println("[ Day " + (day + 1) + " ★ 시작! ]");
 				} // 게임시작시 day 표시
 
-				// 본 게임 시작
 				awReactionCheck = 0;
+				// 본 게임 시작
 				rdQuest.rdQuestNum(); // 랜덤 질문 List method
 				ans.answerScanner(); // 질문에 대한 토핑 답하는 method
 				ach.levels(); // 정답 매칭 시스템
@@ -165,6 +165,7 @@ public class Assembly extends StartingSub implements Tutorial {
 				System.out.println("★☆★ 띠로리띠로리 ▶ 주문하신 피자 나왔습니다! ★☆★");
 				System.out.println("손님 : ");
 
+				rdreactionimg.reRactionImgNum(); // 랜덤 반응 이미지 List nmethod
 				rdReaction.rdReactionNum(); // 랜덤 반응 List method
 				arc.reactionimgCheck(); // 이모지 반응 출력 메소드
 				arc.reactionCheck(); // 반응 출력 매소드

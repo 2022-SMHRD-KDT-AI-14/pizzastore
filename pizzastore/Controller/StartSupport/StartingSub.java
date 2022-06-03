@@ -22,9 +22,8 @@ public class StartingSub {
 	public static int awReactionCheck;
 	public static int nowReaction;
 	public static int nowrdReactionImg;
-	public void numberOf2(MemberDTO dto) {
-	}
-	}
+}
+	
 	
 
 	
